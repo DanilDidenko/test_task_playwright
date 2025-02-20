@@ -39,12 +39,18 @@ class MainPage:
 
     def get_username(self):
         """Click avatar after login and retrieve the displayed username."""
-        self.click_user_avatar_button()
-        try:
-            self.username_field.wait_for(timeout=5000)
-        except:
-            self.login_button.wait_for()
-            self.login_button.click()
+        max_attempts = 3
+        attempt = 0
+
+        while attempt < max_attempts: #Workaround to fix infinite load on main page after login
             self.click_user_avatar_button()
-            self.username_field.wait_for(timeout=10000)
-        return self.username_field.inner_text().strip()
+            try:
+                self.username_field.wait_for(timeout=5000)
+                return self.username_field.inner_text().strip()
+            except:
+                attempt += 1
+                if attempt < max_attempts:
+                    self.login_button.wait_for()
+                    self.login_button.click()
+                else:
+                    raise Exception("❌ Failed to retrieve username after multiple attempts.")
