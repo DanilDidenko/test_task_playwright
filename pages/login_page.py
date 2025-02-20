@@ -1,4 +1,5 @@
 from playwright.sync_api import Page
+
 from config.urls import LOGIN_PAGE
 
 

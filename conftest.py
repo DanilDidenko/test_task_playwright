@@ -11,14 +11,16 @@ def pytest_addoption(parser):
                      choices=["chromium", "firefox"], help="Select the browser: chromium or firefox")
     parser.addoption("--html-report", action="store", default="reports/report.html",
                      help="Set a custom path for the pytest-html report")
+    parser.addoption("--headless", action="store_true", help="Run test in headless mode (without UI)")
 
 
 @pytest.fixture(scope="function")
 def browser(request):
     """Fixture to launch the browser based on the command-line option."""
     browser_type = request.config.getoption("--browser")
+    headless_mode = request.config.getoption("--headless")
     with sync_playwright() as p:
-        launch_options = {"headless": False}
+        launch_options = {"headless": headless_mode}
         if browser_type == "chromium":
             launch_options["args"] = ["--disable-blink-features=AutomationControlled"]
         browser = getattr(p, browser_type).launch(**launch_options)
