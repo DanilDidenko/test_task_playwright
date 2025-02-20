@@ -1,4 +1,4 @@
-VALID_EMAIL = "	testdanildidenko2@gmail.com"
+VALID_EMAIL = "testdanildidenko2@gmail.com"
 VALID_PASSWORD = "test123"
 USERNAME = "fortesttask123"
 
