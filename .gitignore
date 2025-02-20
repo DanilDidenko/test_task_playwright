@@ -1,0 +1,39 @@
+# Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+env/
+.venv/
+
+# Playwright related files
+playwright/.cache/
+playwright/.pytest_cache/
+playwright/.chromium/
+playwright/.firefox/
+playwright/.webkit/
+
+# Pytest reports and logs
+reports/
+*.log
+*.xml
+*.json
+*.png
+
+# Playwright authentication state
+auth.json
+
+# IDE specific files
+.idea/
+.vscode/
+*.iml
+
+# OS specific files
+.DS_Store
+Thumbs.db
