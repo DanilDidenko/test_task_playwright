@@ -6,11 +6,11 @@ Supports **cross-browser testing**, **HTML report generation**, and **screenshot
 
 ## 🚀 Installation
 ```sh
-git clone https://github.com/YOUR_USERNAME/REPOSITORY.git
-cd REPOSITORY
+git clone https://github.com/DanilDidenko/test_task_playwright.git
+cd test_task_playwright
 python -m venv venv
-source venv/bin/activate  # For macOS/Linux
-venv\Scripts\activate  # For Windows
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 playwright install
 ```
