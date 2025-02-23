@@ -21,7 +21,7 @@ class LoginPage:
 
     def login(self, email, password):
         """Fill in login credentials and submit the form."""
-        self.email_input.wait_for()
+        self.email_input.wait_for(timeout=5000)
         self.email_input.clear()
         self.email_input.fill(email)
         self.password_input.clear()
@@ -30,7 +30,7 @@ class LoginPage:
 
     def continue_with_account(self):
         """Click the 'Continue' button after login."""
-        self.continue_with_account_button.wait_for()
+        self.continue_with_account_button.wait_for(timeout=5000)
         self.continue_with_account_button.click()
 
     def get_error_message(self):
