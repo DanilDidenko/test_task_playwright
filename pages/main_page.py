@@ -28,12 +28,13 @@ class MainPage:
     def click_user_avatar_button(self):
         """Click user avatar with hover and delay to avoid flickering issues."""
         self.user_avatar_button.hover()
-        self.user_avatar_button.click(delay=1000)
+        self.user_avatar_button.click(delay=500)
 
     def navigate_to_login_page(self):
         """Click the avatar, then open the login form."""
         self.click_user_avatar_button()
-        self.login_button.click(delay=1000)
+        self.login_button.wait_for(state="visible")
+        self.login_button.click(delay=500)
 
     def get_username(self):
         """Click avatar after login and retrieve the displayed username."""
