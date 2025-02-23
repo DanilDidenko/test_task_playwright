@@ -33,7 +33,8 @@ def test_invalid_login(browser):
     login_page = LoginPage(browser)
     login_page.login(INVALID_EMAIL, INVALID_PASSWORD)
     error_message = login_page.get_error_message()
-    assert "Error\n\nThe account name or password that you have entered is incorrect." == error_message, "❌ First error message mismatch!"
+    expected_error_message = "Error\n\nThe account name or password that you have entered is incorrect."
+    assert error_message == expected_error_message, "❌ First error message mismatch!"
 
     # Third failed login attempt (captcha should appear)
     time.sleep(2)
